@@ -1,0 +1,17 @@
+@use 'variables/colors';
+@use 'variables/grids';
+@use 'variables/effects';
+
+:host {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    background-color: colors.$black-a10;
+    padding: grids.$main-grid * 3;
+    border-bottom: 1px solid colors.$black-a30;
+    height: grids.$header-height;
+}
+
+.active-link {
+    box-shadow: effects.$box-shadow;
+}

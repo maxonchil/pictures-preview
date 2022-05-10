@@ -1,0 +1,14 @@
+<ng-container [ngSwitch]="type">
+    <a *ngSwitchCase="type === ButtonTypes.Link" class="main-button"
+        mat-raised-button
+        [color]="color"
+        (click)="clicked.emit($event)">
+        {{text}}
+    </a>
+    <button *ngSwitchDefault class="main-button"
+        mat-raised-button
+        [color]="color"
+        (click)="clicked.emit($event)">
+        {{text}}
+    </button>
+</ng-container>

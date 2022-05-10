@@ -1,0 +1,5 @@
+<img alt="image"
+    class="picture-image"
+    [class.picture-image--favorite]="picture.isFavorite"
+    [src]="picture.url"
+    (click)="clicked.emit(picture)"/>

@@ -1,0 +1,5 @@
+@use 'variables/grids';
+
+.main-button {
+    min-width: grids.$main-grid * 12;
+}

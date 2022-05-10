@@ -1,0 +1,7 @@
+<div #container class="container"
+    [class.container--loading]="isLoading">
+    <ng-container *ngFor="let picture of pictures">
+        <app-picture [picture]="picture" (clicked)="onPictureClick($event)"></app-picture>
+    </ng-container>
+</div>
+<app-loader *ngIf="isLoading" [global]="isLoaderGlobal"></app-loader>

@@ -1,0 +1,24 @@
+@use 'variables/grids';
+
+:host {
+    display: block;
+    overflow: auto;
+    height: calc(100% - #{grids.$header-height});
+    padding-bottom: 50px;
+}
+
+.container {
+    box-sizing: border-box;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    row-gap: grids.$main-grid * 10;
+    padding-top: grids.$main-grid * 2;
+    margin-bottom: grids.$secondary-grid * 31;
+}
+
+.container--loading {
+    margin-bottom: 0;
+}
+
