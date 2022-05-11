@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { FavoritePicturesStore } from '../../../store/favorites/favorites-pictures-store.types';
 import { Observable } from 'rxjs';
-import { getFavoritesPicturesIds } from '../../../store/favorites/favorites-pictures-store.selectors';
-import { loadFavorites } from '../../../store/favorites/favorites-pictures-store.actions';
+import {
+    addToFavorites,
+    FavoritePicturesStore,
+    getFavoritesPictures,
+    getLoadedState,
+    getLoadingState,
+    loadFavorites,
+    removeFromFavorites,
+} from '@store/favorites';
+import { Picture } from '@services/pictures';
 
 @Injectable({
     providedIn: 'root',
@@ -13,11 +20,27 @@ export class FavoritePicturesStoreService {
         private store: Store<FavoritePicturesStore>,
     ) { }
 
-    getFavorites$(): Observable<string[]> {
-        return this.store.pipe(select(getFavoritesPicturesIds))
-    }
-
     loadFavorites(): void {
         this.store.dispatch(loadFavorites());
+    }
+
+    addToFavorites(picture: Picture): void {
+        this.store.dispatch(addToFavorites({ picture }));
+    }
+
+    removeFromFavorites(picture: Picture): void {
+        this.store.dispatch(removeFromFavorites({ picture }));
+    }
+
+    get$(): Observable<Record<string, Picture>> {
+        return this.store.pipe(select(getFavoritesPictures));
+    }
+
+    getLoadedState$(): Observable<boolean> {
+        return this.store.pipe(select(getLoadedState));
+    }
+
+    getLoadingState$(): Observable<boolean> {
+        return this.store.pipe(select(getLoadingState));
     }
 }

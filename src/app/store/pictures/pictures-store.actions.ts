@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
-import { PageInfo } from './pictures-store.types';
-import { Picture } from '../../services/pictures';
+import { GetNextPictureErrorPayload, GetNextPicturePayload, PicturesActionTypes, UpdatePicturePayload } from './pictures-store.types';
 
-export const getNextPicturesPage = createAction('[Pictures] Get next');
-export const getNextPicturesPageSuccess = createAction('[Pictures] Get Next Success', props<{ pictures: Picture[], pageInfo: PageInfo}>());
-export const getNextPicturesPageError = createAction('[Pictures] Get Next Error', props<{ error: string }>());
+export const getNextPicturesPage = createAction(PicturesActionTypes.GetNext);
+export const getNextPicturesPageSuccess = createAction(PicturesActionTypes.GetNextSuccess, props<GetNextPicturePayload>());
+export const getNextPicturesPageError = createAction(PicturesActionTypes.GetNextError, props<GetNextPictureErrorPayload>());
+export const updatePicture = createAction(PicturesActionTypes.UpdatePicture, props<UpdatePicturePayload>());

@@ -1,10 +1,10 @@
-@use 'variables/grids';
+@use '../../../../styles/variables/grids';
 
 :host {
     display: block;
+    box-sizing: border-box;
     overflow: auto;
     height: calc(100% - #{grids.$header-height});
-    padding-bottom: 50px;
 }
 
 .container {
@@ -15,10 +15,23 @@
     justify-items: center;
     row-gap: grids.$main-grid * 10;
     padding-top: grids.$main-grid * 2;
-    margin-bottom: grids.$secondary-grid * 31;
+    margin-bottom: grids.$main-grid * 11;
 }
 
 .container--loading {
     margin-bottom: 0;
 }
 
+.header-loader {
+    margin-top: grids.$main-grid * 2;
+}
+
+.footer-loader {
+    box-sizing: border-box;
+    margin-bottom: grids.$main-grid;
+}
+
+.hidden {
+    visibility: hidden;
+    pointer-events: none;
+}

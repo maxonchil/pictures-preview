@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { ButtonComponent } from './components/button/button.component';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent, PictureComponent } from './components';
+import { PicturesListComponent } from '@shared/components';
+import { EmptyComponent } from './components/empty/empty.component';
 
 @NgModule({
     declarations: [
-        ButtonComponent,
         PictureComponent,
         LoaderComponent,
+        PicturesListComponent,
+        EmptyComponent,
     ],
     imports: [
         FormsModule,
@@ -17,10 +19,11 @@ import { LoaderComponent, PictureComponent } from './components';
         MatButtonModule,
     ],
     exports: [
-        ButtonComponent,
         MatButtonModule,
         PictureComponent,
         LoaderComponent,
+        PicturesListComponent,
+        EmptyComponent,
     ],
 })
 export class SharedModule {}

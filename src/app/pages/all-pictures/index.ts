@@ -1,2 +1,2 @@
-export * from './all-pictures-page-routing.module'
-export * from './all-pictures-page.component.spec';
+export * from './all-pictures-page.component';
+export * from './all-pictures-page.module';

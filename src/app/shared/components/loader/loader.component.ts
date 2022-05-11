@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
     selector: 'app-loader',
@@ -6,6 +6,4 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     styleUrls: ['./loader.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoaderComponent {
-    @Input() global = true;
-}
+export class LoaderComponent {}

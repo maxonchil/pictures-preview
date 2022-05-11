@@ -1,0 +1,23 @@
+@use 'variables/grids';
+
+$button-offset: grids.$main-grid * 9;
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - #{grids.$header-height});
+    width: 100%;
+    overflow: auto;
+    padding: grids.$main-grid * 3;
+    box-sizing: border-box;
+}
+
+.single-picture {
+    width: 100%;
+    height: calc(100% - #{$button-offset});
+}
+
+.remove-from-favorites {
+    margin-top: grids.$main-grid * 5;
+}

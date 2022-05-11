@@ -4,14 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderModule } from './modules';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { PicturesEffects } from './store/pictures/pictures-store.effects';
-import { picturesReducer } from './store/pictures/pictures-store.reducer';
+import { PicturesEffects, picturesReducer } from '@store/pictures';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { favoritesReducer } from './store/favorites/favorites-pictures-store.reducer';
-import { FavoritesPicturesEffects } from './store/favorites/favorites-pictures-store.effects';
+import { FavoritesPicturesEffects, favoritesReducer } from '@store/favorites';
+import { TokenInterceptor } from '@services/api';
 
 @NgModule({
     declarations: [AppComponent],
@@ -24,7 +23,9 @@ import { FavoritesPicturesEffects } from './store/favorites/favorites-pictures-s
         AppRoutingModule,
         HttpClientModule,
     ],
-    providers: [],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    ],
     bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

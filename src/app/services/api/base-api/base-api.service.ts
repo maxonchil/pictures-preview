@@ -1,4 +1,4 @@
-import { RequestOptionsBuilder } from '../utils/request-options-builder';
+import { RequestOptionsBuilder } from '@services/api';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpMethod } from '../api.types';

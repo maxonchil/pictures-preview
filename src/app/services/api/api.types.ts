@@ -9,9 +9,7 @@ export enum ContentTypes {
 }
 
 export interface RequestDataOptions {
-    [key: string]: unknown;
     params: HttpParams;
     headers: HttpHeaders;
-    body?: unknown;
-    withCredentials?: boolean;
+    [key: string]: unknown;
 }

@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
-import { Picture } from '../../../services/pictures';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { Picture } from '@services/pictures';
 
 @Component({
     selector: 'app-picture',
@@ -9,5 +9,7 @@ import { Picture } from '../../../services/pictures';
 })
 export class PictureComponent {
     @Input() picture!: Picture;
+    @Input() clickDisabled?: boolean = false;
     @Output() clicked = new EventEmitter<Picture>();
+    @Output() loaded = new EventEmitter<string>();
 }

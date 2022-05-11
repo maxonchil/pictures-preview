@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { switchMap, take } from 'rxjs/operators';
-import { Picture, PicturesDomainService } from '../../services/pictures';
 import { catchError, map, of, withLatestFrom } from 'rxjs';
 import { getNextPicturesPage, getNextPicturesPageError, getNextPicturesPageSuccess } from './pictures-store.actions';
 import { PageInfo } from './pictures-store.types';
 import { Action } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
-import { PictureStoreService } from '../../services/pictures/pictures-store-service/picture-store.service';
+import { Picture, PicturesDomainService, PictureStoreService } from '@services/pictures';
 
 @Injectable()
 export class PicturesEffects {
@@ -37,8 +36,7 @@ export class PicturesEffects {
                     }),
                 );
             }),
-            catchError((error: HttpErrorResponse) => {
-                return of(getNextPicturesPageError({ error: error.message }))
-            }),
-        ));
+            catchError((error: HttpErrorResponse) => of(getNextPicturesPageError({ error: error.message }))),
+        )
+    );
 }

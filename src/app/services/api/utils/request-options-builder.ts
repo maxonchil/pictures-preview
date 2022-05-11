@@ -1,4 +1,4 @@
-import { RequestDataBuilder } from './request-data-builder';
+import { ABSOlUTE_PATH, RequestDataBuilder } from '@services/api';
 import { HttpMethod } from '../api.types';
 
 export class RequestOptionsBuilder {
@@ -7,9 +7,9 @@ export class RequestOptionsBuilder {
     constructor(
         relativePath: string,
         method: HttpMethod = HttpMethod.Get,
-        absolutePath = 'https://',
+        absolutePath: string = ABSOlUTE_PATH,
     ) {
-        this.requestData = new RequestDataBuilder(`${absolutePath}/${relativePath}`, method)
+        this.requestData = new RequestDataBuilder(`${absolutePath}/${relativePath}`, method);
     }
 
     withHeader(header: string, value: string | string[]): RequestOptionsBuilder {

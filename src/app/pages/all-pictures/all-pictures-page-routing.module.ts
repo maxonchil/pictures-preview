@@ -6,11 +6,11 @@ const routes: Routes = [
     {
         path: '',
         component: AllPicturesPageComponent,
-    }
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class AllPicturesPageRoutingModule { }
+export class AllPicturesPageRoutingModule {}

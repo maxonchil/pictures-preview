@@ -9,11 +9,20 @@ const routes: Routes = [
     {
         path: 'favorites',
         loadChildren: () => import('./pages/favorties-pictures/favorites-pictures-page.module').then((m) => m.FavoritesPicturesPageModule),
-    }
+    },
+    {
+        path: 'photos',
+        loadChildren: () => import('./pages/photos/photos-page.module').then((m) => m.PhotosPageModule),
+    },
+    {
+        path: '**',
+        loadChildren: () => import('./pages/not-found/not-found.module').then((m) => m.NotFoundModule),
+
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

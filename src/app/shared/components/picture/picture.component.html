@@ -1,5 +1,6 @@
-<img alt="image"
-    class="picture-image"
-    [class.picture-image--favorite]="picture.isFavorite"
+<img (click)="clicked.emit(picture)"
+    (load)="loaded.emit(picture.id)"
+    [class.disabled]="clickDisabled"
     [src]="picture.url"
-    (click)="clicked.emit(picture)"/>
+    alt="image"
+    class="picture-image"/>

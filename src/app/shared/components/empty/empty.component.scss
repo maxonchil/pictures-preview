@@ -1,0 +1,18 @@
+@use 'variables/colors';
+@use 'variables/grids';
+
+:host {
+    width: 100%;
+    text-align: center;
+    font-size: grids.$main-grid * 7;
+    font-weight: 700;
+    color: colors.$black-a30;
+    text-transform: uppercase;
+}
+
+.empty-text {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}

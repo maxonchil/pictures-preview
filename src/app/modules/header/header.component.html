@@ -1,12 +1,14 @@
-<a mat-raised-button
-    routerLink="/"
-    routerLinkActive='active-link'
-    [routerLinkActiveOptions]="{ exact: true }">
-    Photos
-</a>
-<a mat-raised-button
-    routerLink="/favorites"
-    routerLinkActive='active-link'
-    [routerLinkActiveOptions]="{ exact: true }">
-    Favorites
-</a>
+<header class="header">
+    <a [routerLinkActiveOptions]="{ exact: true }"
+        mat-raised-button
+        routerLink="/"
+        routerLinkActive='active-link'>
+        Photos
+    </a>
+    <a [routerLinkActiveOptions]="{ exact: true }"
+        mat-raised-button
+        routerLink="/favorites"
+        routerLinkActive='active-link'>
+        Favorites
+    </a>
+</header>

@@ -1,1 +1,7 @@
-<p>favorites-picture-page works!</p>
+<app-pictures-list (pictureClick)="onPictureClick($event)"
+    *ngIf="pictures.length || isLoading"
+    [isLoading]="isLoading"
+    [pictures]="pictures"
+    [withScrollSubscription]="false">
+</app-pictures-list>
+<app-empty *ngIf="!pictures.length && !isLoading" text="no favorites found"></app-empty>
