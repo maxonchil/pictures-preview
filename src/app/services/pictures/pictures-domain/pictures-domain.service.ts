@@ -76,26 +76,26 @@ export class PicturesDomainService {
         );
     }
 
-    getFavorites$(): Observable<Record<string, Picture>> {
+    getFavorites$(): Observable<Record<string, Picture> | null> {
         return this.favoritePicturesStoreService.get$().pipe(
             withLatestFrom(this.favoritePicturesStoreService.getLoadedState$()),
             switchMap(([favoritesMap, isLoaded]: [Record<string, Picture>, boolean]) => {
                 if (isLoaded) return of(favoritesMap);
                 this.favoritePicturesStoreService.loadFavorites();
-                return of({} as Record<string, Picture>);
+                return of(null);
             }),
-            filter((value: Record<string, Picture>) => !!Object.keys(value).length),
-            delay(getRandomDelay()),
+            filter((value: Record<string, Picture> | null) => value !== null),
+            delay<Record<string, Picture> | null>(getRandomDelay()),
             catchError((error: HttpErrorResponse) => {
                 console.error(error.message);
-                return of({});
+                return of({} as Record<string, Picture>);
             }),
         );
     }
 
     getFavoriteById$(id: string): Observable<Picture> {
         return this.getFavorites$().pipe(
-            map((pictures: Record<string, Picture>) => pictures[id]),
+            map((favorites: Record<string, Picture> | null) => (favorites as Record<string, Picture>)[id]),
         );
     }
 }

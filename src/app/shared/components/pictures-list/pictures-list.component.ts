@@ -44,7 +44,7 @@ export class PicturesListComponent implements AfterViewInit, OnDestroy, OnChange
 
     get isFirstLoading(): boolean {
         return (!this.pictures.length && this.isLoading) ||
-            (this.pictures.length === DEFAULT_PAGE_SIZE && !this.isAllPicturesLoaded);
+            (this.pictures.length <= DEFAULT_PAGE_SIZE && !this.isAllPicturesLoaded);
     }
 
     get isShowFooterLoader(): boolean {

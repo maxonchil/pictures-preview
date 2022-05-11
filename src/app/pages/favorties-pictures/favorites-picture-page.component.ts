@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
     templateUrl: './favorites-picture-page.component.html',
 })
 export class FavoritesPicturePageComponent implements OnInit, OnDestroy {
-    pictures: Picture[] = [];
+    pictures!: Picture[];
     isLoading = true;
     private notifier$ = new Subject<void>();
 
@@ -19,17 +19,19 @@ export class FavoritesPicturePageComponent implements OnInit, OnDestroy {
         private router: Router,
     ) { }
 
+    get isShowEmptyText(): boolean {
+        return !!this.pictures && !this.pictures.length && !this.isLoading;
+    }
+
     ngOnInit(): void {
         this.favoritesPicturesStoreService.getLoadingState$().pipe(
             takeUntil(this.notifier$),
         ).subscribe((isLoading: boolean) => this.isLoading = isLoading);
 
         this.picturesDomainService.getFavorites$().pipe(
-            map((favoritesMap: Record<string, Picture>) => Object.values(favoritesMap)),
+            map((favoritesMap: Record<string, Picture> | null) => Object.values(favoritesMap as Record<string, Picture>)),
             takeUntil(this.notifier$),
-        ).subscribe((pictures: Picture[]) => {
-            this.pictures = pictures;
-        });
+        ).subscribe((pictures: Picture[]) => this.pictures = pictures);
     }
 
     ngOnDestroy() {
