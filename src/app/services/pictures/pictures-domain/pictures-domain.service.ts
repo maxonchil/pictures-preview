@@ -29,7 +29,7 @@ export class PicturesDomainService {
         return this.picturesApiService.getList$(page, limit).pipe(
             withLatestFrom(this.favoritePicturesStoreService.get$()),
             map(([pictures, favoritesMap]: [PictureDto[], Record<string, Picture>]) => this.adapter.forward(pictures, favoritesMap)),
-            delay(getRandomDelay(3000, 5000)),
+            delay(getRandomDelay()),
             catchError((error: HttpErrorResponse) => {
                 console.error(error.message);
                 return of([]);
@@ -69,7 +69,6 @@ export class PicturesDomainService {
             }),
             filter((value: Record<string, Picture>) => !!Object.keys(value).length),
             map((picturesMap: Record<string, Picture>) => Object.values(picturesMap)),
-            delay(getRandomDelay()),
             catchError((error: HttpErrorResponse) => {
                 console.error(error.message);
                 return of([]);

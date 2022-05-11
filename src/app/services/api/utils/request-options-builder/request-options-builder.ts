@@ -1,5 +1,5 @@
 import { ABSOlUTE_PATH, RequestDataBuilder } from '@services/api';
-import { HttpMethod } from '../api.types';
+import { HttpMethod } from '../../api.types';
 
 export class RequestOptionsBuilder {
     private requestData: RequestDataBuilder;
@@ -17,11 +17,9 @@ export class RequestOptionsBuilder {
         return this;
     }
 
-    withParam(param: string, value: string | string[]): RequestOptionsBuilder {
+    withParam(param: string, value: string): RequestOptionsBuilder {
         if (value === undefined) return this;
-        if (value instanceof Array) {
-            value = (value).join();
-        }
+
         this.requestData.options.params = this.requestData.options.params.append(param, value);
         return this;
     }

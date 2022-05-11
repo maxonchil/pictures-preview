@@ -19,6 +19,9 @@
         "target": "es2017",
         "noImplicitAny": false,
         "module": "es2020",
+        "types": [
+            "jest"
+        ],
         "lib": [
             "es2020",
             "dom"
@@ -28,7 +31,7 @@
             "@pages/*": ["app/pages/*"],
             "@services/*": ["app/services/*"],
             "@shared/*": ["app/shared/*"],
-            "@store/*": ["app/store/*"],
+            "@store/*": ["app/store/*"]
         }
     },
     "angularCompilerOptions": {
