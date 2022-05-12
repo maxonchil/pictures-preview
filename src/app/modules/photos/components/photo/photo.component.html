@@ -1,13 +1,12 @@
 <app-loader *ngIf="isLoading"></app-loader>
 <ng-container *ngIf="!isLoading">
-    <app-picture *ngIf="picture"
+    <app-picture class="single-picture"
         [clickDisabled]="true"
-        [picture]="picture"
-        class="single-picture">
+        [picture]="picture">
     </app-picture>
-    <button (click)="removeFromFavorites(picture)"
-        class="remove-from-favorites"
-        mat-raised-button>
+    <button class="remove-from-favorites"
+        mat-raised-button
+        (click)="removeFromFavorites(picture)">
         Remove from favorites
     </button>
 </ng-container>

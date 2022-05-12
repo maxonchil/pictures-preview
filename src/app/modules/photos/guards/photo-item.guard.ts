@@ -16,8 +16,11 @@ export class PhotoItemGuard implements CanActivate, OnDestroy {
         const queryId = route.params?.['id'];
 
         return this.picturesDomainService.getFavoriteById$(queryId).pipe(
-            map((picture: Picture) => !!picture),
-            filter((result) => result !== null),
+            map((picture: Picture) => {
+                if (picture) return true;
+                this.navigateToNotFound();
+                return false;
+            }),
             takeUntil(this.notifier$),
             catchError(() => {
                 this.navigateToNotFound();

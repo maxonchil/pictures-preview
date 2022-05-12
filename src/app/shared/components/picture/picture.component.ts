@@ -9,7 +9,12 @@ import { Picture } from '@services/pictures';
 })
 export class PictureComponent {
     @Input() picture!: Picture;
+    @Input() isLoading!: boolean;
     @Input() clickDisabled?: boolean = false;
     @Output() clicked = new EventEmitter<Picture>();
-    @Output() loaded = new EventEmitter<string>();
+    isLoaded = false;
+
+    onImageLoad(): void {
+        this.isLoaded = true;
+    }
 }

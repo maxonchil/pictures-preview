@@ -1,15 +1,10 @@
-<app-loader *ngIf="isFirstLoading" class="header-loader"></app-loader>
-<div [ngClass]="{
-        'hidden': isFirstLoading,
-        'container--loading': isLoading
-    }"
-    class="container">
+<div class="container"
+    [class.container--loading]="isLoading">
     <ng-container *ngFor="let picture of pictures; trackBy: trackByProp()">
-        <app-picture  [picture]="picture"
-            [class.hidden]="!loadedPicturesSet.has(picture.id)"
-            (loaded)="onPictureLoad($event)"
+        <app-picture [picture]="picture"
+            [isLoading]="isLoading"
             (clicked)="pictureClick.emit($event)">
         </app-picture>
     </ng-container>
 </div>
-<app-loader *ngIf="isShowFooterLoader" class="footer-loader"></app-loader>
+<app-loader *ngIf="isLoading" class="loader"></app-loader>

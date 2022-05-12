@@ -5,6 +5,7 @@
     height: grids.$main-grid * 20;
     width: grids.$main-grid * 30;
     display: block;
+    position: relative;
 }
 
 .picture-image {
@@ -14,6 +15,19 @@
     cursor: pointer;
 }
 
-.disabled {
+.image-disabled {
     pointer-events: none;
+}
+
+.image-hidden {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.image-skeleton {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
 }

@@ -1,6 +1,8 @@
-<img (click)="clicked.emit(picture)"
-    (load)="loaded.emit(picture.id)"
-    [class.disabled]="clickDisabled"
-    [src]="picture.url"
-    alt="image"
-    class="picture-image"/>
+<img alt="image"
+    class="picture-image"
+    [class.image-disabled]="clickDisabled"
+    [class.image-hidden]="!isLoading && !isLoaded"
+    [src]="picture?.url"
+    (click)="clicked.emit(picture)"
+    (load)="onImageLoad()"/>
+<app-skeleton class="image-skeleton" *ngIf="!isLoading && !isLoaded"></app-skeleton>

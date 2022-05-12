@@ -1,0 +1,23 @@
+@use 'variables/colors';
+@use 'variables/grids';
+
+:host {
+    display: block;
+    background-color: colors.$black-a30;
+    animation: skeleton 2.5s infinite;
+    cursor: not-allowed;
+}
+
+@keyframes skeleton {
+    from {
+        background-color: colors.$black-a30;
+    }
+
+    50% {
+        background-color: colors.$black-a10;
+    }
+
+    to {
+        background-color: colors.$black-a30;
+    }
+}

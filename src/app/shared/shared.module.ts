@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { LoaderComponent, PictureComponent } from './components';
 import { PicturesListComponent } from '@shared/components';
 import { EmptyComponent } from './components/empty/empty.component';
+import { SkeletonComponent } from '@shared/components';
 
 @NgModule({
     declarations: [
@@ -12,6 +13,7 @@ import { EmptyComponent } from './components/empty/empty.component';
         LoaderComponent,
         PicturesListComponent,
         EmptyComponent,
+        SkeletonComponent,
     ],
     imports: [
         FormsModule,

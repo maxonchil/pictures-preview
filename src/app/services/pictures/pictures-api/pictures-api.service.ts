@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BaseApiService, ContentTypes, DEFAULT_PAGE_SIZE, RequestOptionsBuilder } from '@services/api';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { PictureDto } from '../pictures.types';
 import { HttpClient } from '@angular/common/http';
+import { mock } from '@services/pictures';
 
 @Injectable({
     providedIn: 'root',

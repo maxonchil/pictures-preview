@@ -15,7 +15,7 @@
     justify-items: center;
     row-gap: grids.$main-grid * 10;
     padding-top: grids.$main-grid * 2;
-    margin-bottom: grids.$main-grid * 11;
+    margin-bottom: grids.$main-grid * 12;
 }
 
 .container--loading {
@@ -26,12 +26,7 @@
     margin-top: grids.$main-grid * 2;
 }
 
-.footer-loader {
+.loader {
     box-sizing: border-box;
-    margin-bottom: grids.$main-grid;
-}
-
-.hidden {
-    visibility: hidden;
-    pointer-events: none;
+    margin: grids.$main-grid 0;
 }
